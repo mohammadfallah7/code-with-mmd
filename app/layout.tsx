@@ -1,4 +1,5 @@
 import Navbar from "@/app/_components/navbar";
+import Container from "@/components/container";
 import ThemeProvider from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
@@ -28,10 +29,10 @@ const RootLayout = ({
           enableSystem
           disableTransitionOnChange
         >
-          <div>
-            <Navbar />
-            <main>{children}</main>
-          </div>
+          <Navbar />
+          <main className="py-4">
+            <Container>{children}</Container>
+          </main>
         </ThemeProvider>
       </body>
     </html>

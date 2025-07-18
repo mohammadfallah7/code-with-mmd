@@ -13,7 +13,7 @@ const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/60 py-4 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b bg-background/95 py-4 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
       <Container>
         <motion.div
           initial={{ opacity: 0 }}
