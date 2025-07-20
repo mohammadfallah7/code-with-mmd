@@ -64,3 +64,10 @@ export const heroSocialMedias = [
   { icon: "LinkedIn", href: "https://linkedin.com/in/fallahmohammad" },
   { icon: "Twitter", href: "https://twitter.com/mohammadfallah_" },
 ];
+
+export const stats = [
+  { label: "Projects Completed", number: "10+" },
+  { label: "Years experiences", number: "3+" },
+  { label: "Technologies", number: "20+" },
+  { label: "Client Satisfaction", number: "100%" },
+];
