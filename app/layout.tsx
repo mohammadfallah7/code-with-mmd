@@ -3,6 +3,7 @@ import Container from "@/components/container";
 import ThemeProvider from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
+import Footer from "./_components/footer";
 import "./globals.css";
 
 const urbanist = Urbanist({
@@ -33,6 +34,7 @@ const RootLayout = ({
           <main className="py-4">
             <Container>{children}</Container>
           </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

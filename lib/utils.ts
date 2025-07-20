@@ -61,9 +61,21 @@ export const imageVariants: Variants = {
 };
 
 export const socialLinks = [
-  { icon: "Github", href: "https://github.com/mohammadfallah7" },
-  { icon: "LinkedIn", href: "https://linkedin.com/in/fallahmohammad" },
-  { icon: "Twitter", href: "https://twitter.com/mohammadfallah_" },
+  {
+    icon: "Github",
+    href: "https://github.com/mohammadfallah7",
+    color: "hover:text-gray-400",
+  },
+  {
+    icon: "LinkedIn",
+    href: "https://linkedin.com/in/fallahmohammad",
+    color: "hover:text-blue-400",
+  },
+  {
+    icon: "Twitter",
+    href: "https://twitter.com/mohammadfallah_",
+    color: "hover:text-sky-400",
+  },
 ];
 
 export const stats = [
