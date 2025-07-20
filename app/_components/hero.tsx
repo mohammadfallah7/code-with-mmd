@@ -243,16 +243,19 @@ const MobileHero = () => {
           variants={itemVariants}
           className="mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
+          <Link href="/challenges">
+            <motion.button
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="rounded-full bg-blue-500 px-8 py-3 text-sm font-medium tracking-wider text-white uppercase transition-all duration-300 hover:bg-blue-600"
+            >
+              Challenges
+            </motion.button>
+          </Link>
           <motion.button
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="rounded-full bg-blue-500 px-8 py-3 text-sm font-medium tracking-wider text-white uppercase transition-all duration-300 hover:bg-blue-600"
-          >
-            View Work
-          </motion.button>
-          <motion.button
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.98 }}
+            onClick={() => scrollToSection("contact")}
             className="rounded-full border border-gray-300 px-8 py-3 text-sm font-medium tracking-wider text-gray-700 uppercase transition-all duration-300 hover:border-gray-400 dark:border-gray-700 dark:text-gray-300 dark:hover:border-gray-600"
           >
             Get in Touch
