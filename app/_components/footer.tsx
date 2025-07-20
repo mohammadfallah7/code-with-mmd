@@ -85,7 +85,7 @@ const Footer = () => {
                     stiffness: 300,
                   }}
                 >
-                  {social.icon}
+                  <social.icon className="size-4" />
                 </motion.a>
               ))}
             </motion.div>

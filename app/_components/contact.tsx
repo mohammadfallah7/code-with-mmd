@@ -209,9 +209,10 @@ const Contact = () => {
                     whileTap={{ scale: 0.95 }}
                     key={index}
                     href={social.href}
-                    className="flex items-center space-x-3 rounded-xl border border-gray-200 bg-white/80 p-4 transition-all duration-300 hover:border-gray-300 dark:border-gray-700 dark:bg-gray-800/50 dark:hover:border-gray-600"
+                    className={`flex items-center space-x-3 rounded-xl border border-gray-200 bg-white/80 p-4 transition-all duration-300 hover:border-gray-300 dark:border-gray-700 dark:bg-gray-800/50 dark:hover:border-gray-600 ${social.color}`}
                   >
-                    {social.icon}
+                    <social.icon className="size-5" />
+                    <span>{social.label}</span>
                   </motion.a>
                 ))}
               </div>

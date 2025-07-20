@@ -1,6 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { LucideMail, LucideMapPin, LucidePhone } from "lucide-react";
 import { Variants } from "motion";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -70,17 +71,20 @@ export const imageVariants: Variants = {
 
 export const socialLinks = [
   {
-    icon: "Github",
+    icon: FaGithub,
+    label: "Github",
     href: "https://github.com/mohammadfallah7",
     color: "hover:text-gray-400",
   },
   {
-    icon: "LinkedIn",
+    icon: FaLinkedin,
+    label: "LinkedIn",
     href: "https://linkedin.com/in/fallahmohammad",
     color: "hover:text-blue-400",
   },
   {
-    icon: "Twitter",
+    icon: FaXTwitter,
+    label: "X",
     href: "https://twitter.com/mohammadfallah_",
     color: "hover:text-sky-400",
   },

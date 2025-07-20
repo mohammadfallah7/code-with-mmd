@@ -118,7 +118,7 @@ const DesktopHero = () => {
               whileHover={{ y: -3, scale: 1.1 }}
               className="rounded-full p-3 text-gray-600 transition-colors hover:bg-gray-200 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
             >
-              {social.icon}
+              <social.icon className="size-4" />
             </motion.a>
           ))}
         </motion.div>
@@ -271,7 +271,7 @@ const MobileHero = () => {
               whileHover={{ y: -3, scale: 1.1 }}
               className="rounded-full p-3 text-gray-600 transition-colors hover:bg-gray-200 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
             >
-              {social.icon}
+              <social.icon className="size-4" />
             </motion.a>
           ))}
         </motion.div>
