@@ -2,12 +2,14 @@
 
 import Modal from "@/components/modal";
 import TextInput from "@/components/text-input";
+import { env } from "@/lib/env";
 import {
   contactInfo,
   containerVariants,
   itemVariants,
   socialLinks,
 } from "@/lib/utils";
+import emailjs from "@emailjs/browser";
 import { LucideSend } from "lucide-react";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
 import { FormEvent, useRef, useState } from "react";
@@ -22,6 +24,7 @@ const Contact = () => {
   const [showError, setShowError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const formRef = useRef(null);
   const contactRef = useRef(null);
   const isInView = useInView(contactRef, { once: true });
   const { scrollYProgress } = useScroll({
@@ -47,9 +50,12 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      await new Promise((resolve) => {
-        setTimeout(resolve, 1000);
-      });
+      await emailjs.sendForm(
+        env.emailJsServiceId!,
+        env.emailJsTemplateId!,
+        formRef.current!,
+        { publicKey: env.emailJsPublicKey },
+      );
 
       setFormData({ name: "", message: "", email: "" });
       setShowSuccess(true);
@@ -112,10 +118,11 @@ const Contact = () => {
               className="rounded-2xl border border-gray-200 bg-gray-50/80 p-8 backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800/50 dark:backdrop-blur-sm"
             >
               <h3 className="mb-8 text-2xl font-medium">Send a message</h3>
-              <div className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid gap-6 md:grid-cols-2">
                   <TextInput
                     value={formData.name}
+                    name="name"
                     label="Your Name"
                     handleInputChange={(value) =>
                       handleInputChange("name", value)
@@ -123,6 +130,8 @@ const Contact = () => {
                   />
                   <TextInput
                     value={formData.email}
+                    type="email"
+                    name="email"
                     label="Email Address"
                     handleInputChange={(value) =>
                       handleInputChange("email", value)
@@ -136,14 +145,15 @@ const Contact = () => {
                     handleInputChange("message", value)
                   }
                   textarea={true}
+                  name="message"
                 />
 
                 <motion.button
+                  type="submit"
                   disabled={isSubmitting}
                   whileHover={{ y: -2, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-500 py-4 text-sm font-medium tracking-wider text-white uppercase transition-all duration-300 hover:bg-blue-600 disabled:bg-blue-400"
-                  onClick={handleSubmit}
                 >
                   {isSubmitting ? (
                     <>
@@ -165,7 +175,7 @@ const Contact = () => {
                     </>
                   )}
                 </motion.button>
-              </div>
+              </form>
             </motion.div>
           </motion.div>
 
