@@ -3,10 +3,11 @@
 import Container from "@/components/container";
 import MenuToggle from "@/components/menu-toggle";
 import ModeToggle from "@/components/mode-toggle";
-import { navItems } from "@/lib/utils";
+import { navItems, scrollToSection } from "@/lib/utils";
 import { LucideCode2 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const Navbar = () => {
@@ -55,7 +56,9 @@ const Navbar = () => {
               exit={{ opacity: 0, y: -20 }}
               className="mt-4 rounded-lg bg-accent p-4 md:hidden"
             >
-              <MobileNavbar />
+              <MobileNavbar
+                onClose={() => setShowMobileMenu(!showMobileMenu)}
+              />
             </motion.div>
           )}
         </AnimatePresence>
@@ -65,6 +68,8 @@ const Navbar = () => {
 };
 
 const DesktopNavbar = () => {
+  const pathName = usePathname();
+
   return (
     <nav className="hidden items-center gap-10 md:flex">
       {navItems.map((item, index) => (
@@ -76,11 +81,26 @@ const DesktopNavbar = () => {
           <Link href={item.href}>{item.label}</Link>
         </motion.div>
       ))}
+      {pathName === "/" && (
+        <motion.div
+          whileHover={{ y: -2 }}
+          className="text-sm tracking-wider text-muted-foreground uppercase transition-colors hover:text-foreground"
+        >
+          <motion.span
+            className="cursor-pointer"
+            onClick={() => scrollToSection("contact")}
+          >
+            Contact
+          </motion.span>
+        </motion.div>
+      )}
     </nav>
   );
 };
 
-const MobileNavbar = () => {
+const MobileNavbar = ({ onClose }: { onClose?: () => void }) => {
+  const pathName = usePathname();
+
   return (
     <nav className="flex flex-col items-start gap-5">
       {navItems.map((item, index) => (
@@ -92,6 +112,19 @@ const MobileNavbar = () => {
           <Link href={item.href}>{item.label}</Link>
         </motion.div>
       ))}
+      {pathName === "/" && (
+        <motion.div
+          whileHover={{ x: 5 }}
+          className="text-sm tracking-wider text-muted-foreground uppercase transition-colors hover:text-foreground"
+        >
+          <motion.span
+            className="cursor-pointer"
+            onClick={() => scrollToSection("contact", onClose)}
+          >
+            Contact
+          </motion.span>
+        </motion.div>
+      )}
     </nav>
   );
 };

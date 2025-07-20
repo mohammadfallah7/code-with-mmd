@@ -7,6 +7,14 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export function scrollToSection(sectionId: string, onClose?: () => void) {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+    onClose?.();
+  }
+}
+
 export const navItems = [
   { label: "Home", href: "/" },
   { label: "Challenges", href: "/challenges" },
