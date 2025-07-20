@@ -1,4 +1,5 @@
 import { clsx, type ClassValue } from "clsx";
+import { LucideMail, LucideMapPin, LucidePhone } from "lucide-react";
 import { Variants } from "motion";
 import { twMerge } from "tailwind-merge";
 
@@ -59,7 +60,7 @@ export const imageVariants: Variants = {
   },
 };
 
-export const heroSocialMedias = [
+export const socialLinks = [
   { icon: "Github", href: "https://github.com/mohammadfallah7" },
   { icon: "LinkedIn", href: "https://linkedin.com/in/fallahmohammad" },
   { icon: "Twitter", href: "https://twitter.com/mohammadfallah_" },
@@ -70,4 +71,18 @@ export const stats = [
   { label: "Years experiences", number: "3+" },
   { label: "Technologies", number: "20+" },
   { label: "Client Satisfaction", number: "100%" },
+];
+
+export const contactInfo = [
+  { icon: LucideMapPin, label: "Location", value: "Tehran, IR" },
+  {
+    icon: LucideMail,
+    label: "Email",
+    value: "mohammadfallah.w@gmail.com",
+  },
+  {
+    icon: LucidePhone,
+    label: "Phone",
+    value: "+98 905-515-3516",
+  },
 ];

@@ -2,9 +2,9 @@
 
 import {
   containerVariants,
-  heroSocialMedias,
   imageVariants,
   itemVariants,
+  socialLinks,
   textVariants,
 } from "@/lib/utils";
 import { LucideArrowDown } from "lucide-react";
@@ -105,7 +105,7 @@ const DesktopHero = () => {
         </motion.div>
 
         <motion.div variants={itemVariants} className="mb-12 flex gap-6">
-          {heroSocialMedias.map((social, index) => (
+          {socialLinks.map((social, index) => (
             <motion.a
               key={index}
               href={social.href}
@@ -258,7 +258,7 @@ const MobileHero = () => {
           variants={itemVariants}
           className="mb-8 flex justify-center gap-6"
         >
-          {heroSocialMedias.map((social, index) => (
+          {socialLinks.map((social, index) => (
             <motion.a
               key={index}
               href={social.href}
