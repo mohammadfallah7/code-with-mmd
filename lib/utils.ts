@@ -1,4 +1,5 @@
 import { clsx, type ClassValue } from "clsx";
+import { Variants } from "motion";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -10,7 +11,7 @@ export const navItems = [
   { label: "Challenges", href: "/challenges" },
 ];
 
-export const containerVariants = {
+export const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -21,7 +22,7 @@ export const containerVariants = {
   },
 };
 
-export const itemVariants = {
+export const itemVariants: Variants = {
   hidden: { y: 30, opacity: 0 },
   visible: {
     y: 0,
@@ -33,7 +34,7 @@ export const itemVariants = {
   },
 };
 
-export const textVariants = {
+export const textVariants: Variants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
@@ -45,7 +46,7 @@ export const textVariants = {
   },
 };
 
-export const imageVariants = {
+export const imageVariants: Variants = {
   hidden: { x: 50, opacity: 0 },
   visible: {
     x: 0,
