@@ -1,3 +1,5 @@
+"use client";
+
 interface ITextInputProps {
   handleInputChange: (value: string) => void;
   label: string;
