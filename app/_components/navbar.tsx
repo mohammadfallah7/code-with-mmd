@@ -27,7 +27,7 @@ const Navbar = () => {
         >
           <motion.div whileHover={{ scale: 1.05 }}>
             <Link href="/" className="flex items-center gap-2">
-              <LucideCode2 className="size-7 text-primary" />
+              <LucideCode2 className="size-7 text-blue-500" />
               <h2 className="text-lg font-bold">CodeWithMMD</h2>
             </Link>
           </motion.div>
