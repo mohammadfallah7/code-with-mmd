@@ -12,7 +12,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ isAdmin = false }: { isAdmin?: boolean }) => {
   const { data: session } = useSession();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
@@ -57,13 +57,15 @@ const Navbar = () => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
-                    className="absolute top-15 right-5 flex gap-5 rounded-xl bg-accent/95 px-5 py-5 backdrop-blur-md supports-[backdrop-filter]:bg-accent/60"
+                    className="absolute top-14 right-3 flex gap-5 rounded-xl bg-accent/95 px-5 py-5 backdrop-blur-md supports-[backdrop-filter]:bg-accent/60"
                   >
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <LucideUser className="size-4" />
+                      <Link href={isAdmin ? "/dashboard" : "/profile"}>
+                        <LucideUser className="size-4" />
+                      </Link>
                     </motion.div>
                     <motion.div
                       whileHover={{ scale: 1.1 }}
