@@ -5,7 +5,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="flex flex-col gap-4 md:flex-row md:gap-8">
       <DashboardMenu />
-      {children}
+      <div className="flex-1">{children}</div>
     </div>
   );
 };
