@@ -110,3 +110,9 @@ export const contactInfo = [
     value: "+98 905-515-3516",
   },
 ];
+
+export const dashboardMenuItems = [
+  { label: "Dashboard", href: "/dashboard" },
+  { label: "Users", href: "/dashboard/users" },
+  { label: "Create challenge", href: "/dashboard/challenge/create" },
+];
