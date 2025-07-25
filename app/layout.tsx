@@ -1,6 +1,7 @@
 import Navbar from "@/app/_components/navbar";
 import Container from "@/components/container";
 import ThemeProvider from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 import { getCurrentUser } from "@/lib/get-current-user";
 import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
@@ -43,6 +44,7 @@ const RootLayout = async ({
           </ThemeProvider>
         </body>
       </html>
+      <Toaster />
     </SessionProvider>
   );
 };
