@@ -14,13 +14,14 @@ enum Role {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String    @unique
-  emailVerified DateTime?
-  image         String?
-  role          Role      @default(USER)
-  accounts      Account[]
+  id               String            @id @default(cuid())
+  name             String?
+  email            String            @unique
+  emailVerified    DateTime?
+  image            String?
+  role             Role              @default(USER)
+  accounts         Account[]
+  solvedChallenges SolvedChallenge[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -53,4 +54,37 @@ model VerificationToken {
   expires    DateTime
 
   @@id([identifier, token])
+}
+
+model Category {
+  id         String      @id @default(cuid())
+  name       String
+  challenges Challenge[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Challenge {
+  id          String            @id @default(cuid())
+  title       String
+  description String
+  starterCode String
+  categoryId  String
+  category    Category          @relation(fields: [categoryId], references: [id])
+  solvedBy    SolvedChallenge[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SolvedChallenge {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  challengeId String
+  Challenge   Challenge @relation(fields: [challengeId], references: [id])
+  solvedAt    DateTime  @default(now())
+
+  @@unique([userId, challengeId])
 }
