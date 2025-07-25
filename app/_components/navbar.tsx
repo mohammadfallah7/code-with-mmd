@@ -63,7 +63,10 @@ const Navbar = ({ isAdmin = false }: { isAdmin?: boolean }) => {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Link href={isAdmin ? "/dashboard" : "/profile"}>
+                      <Link
+                        href={isAdmin ? "/dashboard" : "/profile"}
+                        onClick={() => setShowProfileMenu(!showProfileMenu)}
+                      >
                         <LucideUser className="size-4" />
                       </Link>
                     </motion.div>
