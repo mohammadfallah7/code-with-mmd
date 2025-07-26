@@ -30,8 +30,9 @@ const CreateCategoryDialog = () => {
   useEffect(() => {
     if (state.message === "Success") {
       toast.success("Category created successfully!");
-
       if (closeButtonRef.current) closeButtonRef.current.click();
+    } else if (state.message && !state.errors) {
+      toast.error(state.message);
     }
   }, [state]);
 
